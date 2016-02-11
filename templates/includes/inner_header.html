@@ -1,0 +1,42 @@
+<header>
+
+    <div id="stuck_container" class="stuck_container">
+        <div class="container">
+
+            <div class="brand">
+                <h1 class="brand_name">
+                    <a href="/">Django</a>
+                </h1>
+            </div>
+
+            <nav class="nav">
+                <ul class="sf-menu">
+                    <li {% if url == "home" %} class="active"  {% endif %}>
+                        <a href="/">Home</a>
+                    </li>
+                    <li {% if url == "about" %} class="active"  {% endif %}>
+                        <a href="/about">About</a>
+                    </li>
+                    <li {% if url == "menu" %} class="active"  {% endif %}>
+                        <a href="/menu">Menu</a>
+                    </li>
+                    <li>
+                        <a href="/">Contacts</a>
+                    </li>
+
+                    {% if user.username %}
+                    <li {% if url == "profile" %} class="active"  {% endif %}>
+                        <a href="/profile">My Profile</a>
+                        <ul>
+                            <li>
+                                <a href="/product">Product</a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</header>

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}User Login{% endblock %}
+{% block head %}User Login{% endblock %}
+{% block content %}
+{% load staticfiles %}
+
+<div class="page">
+
+    {% include 'includes/inner_header.html' %}
+
+
+    <main>
+        <section class="well well__offset-3">
+            <div class="container">
+                <h2><em>Thank you</em>Interesting us</h2>
+                <!--<div class="map">
+                  <div id="google-map" class="map_model"></div>
+                  <ul class="map_locations">
+                    <li data-x="-73.9874068" data-y="40.643180">
+                      <p> 9870 St Vincent Place, Glasgow, DC 45 Fr 45. <span>800 2345-6789</span></p>
+                    </li>
+                  </ul>
+                </div>-->
+                <div class="row box-3">
+                    <div class="grid_5">
+                        <h2>Login Form</h2>
+
+                        {% if form.errors %}
+                            <p style="margin-bottom:10px;color:red">Your username and password didn't match. Please try again</p>
+                        {% endif %}
+
+                        <form  class="contact-form" action="." method="post">{% csrf_token %}
+                            <div class="contact-form-loader"></div>
+                            <fieldset>
+                                <label class="name">
+                                    Username:
+                                    {{ form.username }}
+                                </label>
+
+                                <label class="email">
+                                    Password:
+                                    {{ form.password }}
+                                </label>
+
+                                <div class="btn-wr">
+                                    <input type="submit" name="submit" value="Login" class="submit"/>
+                                    <input type="buttom" name="submit" onclick="window.location='/register';" value="Registration" class="submit"/>
+                                    <input type="hidden" name="next" value="/menu" />
+                                </div>
+                            </fieldset>
+                        </form>
+
+
+                    </div>
+                    <div class="preffix_1 grid_6">
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur orci sed Curabitur vel lorem sit amet nulla ullamcorper fermentum. In vitae varius augue, eu consectetur ligula. Etiam dui eros, laoreet sit amet est vel</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur orci sed Curabitur vel lorem sit amet nulla ullamcorper fermentum. In vitae varius augue, eu consectetur ligula. Etiam dui eros, laoreet sit amet est vel, commodo venenatis eros.Lamus at magna non nunc tristique rhoncuseri tym.<br><br>Etiam dui eros, laoreet sit amet est vel, commodo venenatis eros.Lamus at magna non nunc tristique rhoncuseri tym. Etiam dui eros, laoreet sit amet est vel, commodo venenatis eros.Lamus at magna non nunc tristique.</p>
+                        <address class="address-2">
+                            <div class="address_container"><p>The Company Name Inc.-------------------</p></div>
+                            <dl>
+                                <dt>Telphone:</dt> <dd>000-0000-000</dd><br>
+                                <dt>FAX:</dt> <dd>+1 000-0000-000</dd><br>
+                                <dt>E-mail:</dt> <dd><a href="mailto:ramesh.unified@gmail.com">ramesh.unified@gmail.com</a></dd>
+                            </dl>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    {% include 'includes/footer.html' %}
+</div>
+
+
+{% endblock %}

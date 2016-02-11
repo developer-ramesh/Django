@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}User Login{% endblock %}
+{% block head %}User Login{% endblock %}
+{% block content %}
+{% load staticfiles %}
+
+<div class="page">
+
+    {% include 'includes/inner_header.html' %}
+
+
+    <main>
+        <section class="well well__offset-3">
+            <div class="container">
+
+                <div class="row box-3">
+                    <div class="grid_12">
+                        <h2>Edit Menu</h2>
+
+
+                        <form  class="contact-form" action="." method="post">{% csrf_token %}
+                            <div class="contact-form-loader"></div>
+                            <fieldset>
+                                <label class="name">
+                                    Name:
+                                    <input type="text" name="name" value="{{product_list.product_text}}" placeholder="Name"/>
+                                    <span class="empty-message">*This field is required.</span>
+                                </label>
+
+                                <label class="name">
+                                    Text:
+                                    <input type="text" name="desc" value="{{product_list.product_desc}}" placeholder="Description"/>
+                                    <span class="empty-message">*This field is required.</span>
+                                </label>
+                                <br><br>
+                                <label class="name">
+                                    Picture:
+                                    <input type="file" name="file" placeholder="Description"/>
+                                    <span class="empty-message">*This field is required.</span>
+                                </label>
+
+                                <div class="btn-wr">
+                                    <input type="submit" name="submit" value="Update" class="submit"/>
+                                    <input type="buttom" name="submit" onclick="window.location='/product';" value="Cancel" class="submit">
+                                </div>
+                            </fieldset>
+                        </form>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    {% include 'includes/footer.html' %}
+</div>
+
+
+{% endblock %}

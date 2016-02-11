@@ -1,0 +1,30 @@
+<div class="toggle-menu-container">
+        <nav class="nav">
+            <div class="nav_title"></div>
+            <a class="sf-menu-toggle fa fa-bars" href="#"></a>
+            <ul class="sf-menu">
+                <li {% if url == "home" %} class="active"  {% endif %}>
+                     <a href="/">Home</a>
+                </li>
+                <li {% if url == "about" %} class="active"  {% endif %}>
+                     <a href="/about">About</a>
+                </li>
+                <li {% if url == "menu" %} class="active"  {% endif %}>
+                     <a href="/menu">Menu</a>
+                </li>
+                <li>
+                    <a href="/">Contacts</a>
+                </li>
+                {% if user.username %}
+                <li {% if url == "profile" %} class="active"  {% endif %}>
+                    <a href="/profile">My Profile</a>
+                    <ul>
+                        <li>
+                            <a href="/product">Product</a>
+                        </li>
+                    </ul>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+</div>

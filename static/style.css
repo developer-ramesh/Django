@@ -1,0 +1,33 @@
+.contact-form input[type='password'] , input[type='text']{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font: 400 16px 'Open Sans', sans-serif;
+    line-height: 24px;
+    padding: 3.5px 20px 3.5px;
+    color: #999999;
+    background-color: #ffffff;
+    border: 1px solid #a1a097;
+    width: 100%;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    height: 31px;
+    margin: 6px 0 12px 0;
+}
+
+
+.contact-form .btn-wr .submit {
+    margin-top: 57px;
+    border: 1px solid #a95858;
+    display: inline-block;
+    font: 400 20px/20px 'Open Sans', sans-serif;
+    padding: 10px 24px;
+    color: #393328;
+    cursor:pointer;
+}
+
+ul {
+    list-style: none;
+    color:red;
+}

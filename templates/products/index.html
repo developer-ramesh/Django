@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}User Login{% endblock %}
+{% block head %}User Login{% endblock %}
+{% block content %}
+{% load staticfiles %}
+
+<div class="page">
+
+    {% include 'includes/inner_header.html' %}
+
+
+    <main>
+        <section class="well well__offset-3">
+            <div class="container">
+
+                <div class="row box-3">
+                    <div class="grid_12">
+                        <h2>Add Menu</h2>
+
+                        {% if form.errors %}
+                            <p style="margin-bottom:10px;color:red">Your username and password didn't match. Please try again</p>
+                        {% endif %}
+
+                        <form  class="contact-form" action="." method="post">{% csrf_token %}
+                            <div class="contact-form-loader"></div>
+                            <fieldset>
+                                <label class="name">
+                                    Name:
+                                    <input type="text" name="name" placeholder="Name"/>
+                                    <span class="empty-message">*This field is required.</span>
+                                </label>
+
+                                <label class="name">
+                                    Text:
+                                    <input type="text" name="desc" placeholder="Description"/>
+                                    <span class="empty-message">*This field is required.</span>
+                                </label>
+                                <br><br>
+                                <label class="name">
+                                    Picture:
+                                    <input type="file" name="file" placeholder="Description"/>
+                                    <span class="empty-message">*This field is required.</span>
+                                </label>
+
+                                <div class="btn-wr">
+                                    <input type="submit" name="submit" value="Add" class="submit"/>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <table style="margin-top:75px;">
+                        <tr style="border-bottom: 1px solid gray;"> <th style="width: 25%;">Product Name</th> <th style="width: 68%;">Description</th> <th>Action</th></tr>
+                        {% for prodct in product_list %}
+                        <tr style="border-bottom: 1px solid gray;">
+                            <td style="width: 25%;">{{ prodct.product_text }} </td> <td style="width: 68%;"> {{ prodct.product_desc }} </td> <td><a href="/update/{{prodct.id}}">Edit</a> | <a href="/delete/{{prodct.id}}" onclick="return confirm('Are you sure to delete?');">Delete</a></td>
+                        {% endfor %}
+                        </tr>
+                        </table>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    {% include 'includes/footer.html' %}
+</div>
+
+
+{% endblock %}
